@@ -19,6 +19,7 @@
 */
 
 #include "src/Grbl.h"
+#include <Arduino.h>
 
 void setup() {
     grbl_init();
