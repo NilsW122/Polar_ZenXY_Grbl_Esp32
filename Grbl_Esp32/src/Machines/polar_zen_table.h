@@ -38,18 +38,18 @@
 #define SEGMENT_LENGTH 0.5 // segment length in mm
 
 
-#define N_AXIS 4
+#define N_AXIS 2
 
 #define TRINAMIC_UART_RUN_MODE       TrinamicUartMode :: StealthChop
 #define TRINAMIC_UART_HOMING_MODE    TrinamicUartMode :: StallGuard
 
-#define TMC_UART                UART_NUM_1
-#define TMC_UART_RX             GPIO_NUM_21
-#define TMC_UART_TX             GPIO_NUM_22   
+#define TMC_UART                UART_NUM_2
+#define TMC_UART_RX             GPIO_NUM_16
+#define TMC_UART_TX             GPIO_NUM_17   
 
 #define X_TRINAMIC_DRIVER       2209
 #define X_STEP_PIN              GPIO_NUM_26
-#define X_DIRECTION_PIN         GPIO_NUM_27
+#define X_DIRECTION_PIN         GPIO_NUM_25
 #define X_RSENSE                TMC2209_RSENSE_DEFAULT
 #define X_DRIVER_ADDRESS        0
 #define DEFAULT_X_MICROSTEPS    16
@@ -61,10 +61,10 @@
 #define Y_DRIVER_ADDRESS        1
 #define DEFAULT_Y_MICROSTEPS    16
 
-#define X_LIMIT_PIN             GPIO_NUM_35
-#define Y_LIMIT_PIN             GPIO_NUM_34
+#define X_LIMIT_PIN             GPIO_NUM_27
+#define Y_LIMIT_PIN             GPIO_NUM_36
 // OK to comment out to use pin for other features
-#define STEPPERS_DISABLE_PIN    GPIO_NUM_25
+#define STEPPERS_DISABLE_PIN    GPIO_NUM_4
 
 
 #define SPINDLE_TYPE SpindleType::NONE
