@@ -93,10 +93,10 @@ const int MAX_N_AXIS = 6;
 #define BAUD_RATE 115200
 
 //Connect to your local AP with these credentials
-//#define CONNECT_TO_SSID  "your SSID"
-//#define SSID_PASSWORD  "your SSID password"
+//#define CONNECT_TO_SSID  "WCable"
+//#define SSID_PASSWORD  "76519842512869044261"
 //CONFIGURE_EYECATCH_BEGIN (DO NOT MODIFY THIS LINE)
-#define ENABLE_BLUETOOTH  // enable bluetooth
+//#define ENABLE_BLUETOOTH  // enable bluetooth
 
 #define ENABLE_SD_CARD  // enable use of SD Card to run jobs
 
@@ -108,8 +108,8 @@ const int MAX_N_AXIS = 6;
 
 #define ENABLE_HTTP                //enable HTTP and all related services
 #define ENABLE_OTA                 //enable OTA
-#define ENABLE_TELNET              //enable telnet
-#define ENABLE_TELNET_WELCOME_MSG  //display welcome string when connect to telnet
+//#define ENABLE_TELNET              //enable telnet
+//#define ENABLE_TELNET_WELCOME_MSG  //display welcome string when connect to telnet
 #define ENABLE_MDNS                //enable mDNS discovery
 #define ENABLE_SSDP                //enable UPNP discovery
 #define ENABLE_NOTIFICATIONS       //enable notifications
@@ -202,7 +202,7 @@ enum class Cmd : uint8_t {
 // If homing is enabled, homing init lock sets Grbl into an alarm state upon power up. This forces
 // the user to perform the homing cycle (or override the locks) before doing anything else. This is
 // mainly a safety feature to remind the user to home, since position is unknown to Grbl.
-#define HOMING_INIT_LOCK  // Comment to disable
+//#define HOMING_INIT_LOCK  // Comment to disable/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Number of homing cycles performed after when the machine initially jogs to limit switches.
 // This help in preventing overshoot and should improve repeatability. This value should be one or

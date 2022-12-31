@@ -47,22 +47,24 @@
 #define TMC_UART_RX             GPIO_NUM_16
 #define TMC_UART_TX             GPIO_NUM_17   
 
+// RADIUS_AXIS
 #define X_TRINAMIC_DRIVER       2209
-#define X_STEP_PIN              GPIO_NUM_26
-#define X_DIRECTION_PIN         GPIO_NUM_25
-#define X_RSENSE                TMC2209_RSENSE_DEFAULT
+#define X_STEP_PIN              GPIO_NUM_33
+#define X_DIRECTION_PIN         GPIO_NUM_32
+#define X_RSENSE                0.11f
 #define X_DRIVER_ADDRESS        0
 #define DEFAULT_X_MICROSTEPS    16
 
+// POLAR_AXIS
 #define Y_TRINAMIC_DRIVER       2209
-#define Y_STEP_PIN              GPIO_NUM_33
-#define Y_DIRECTION_PIN         GPIO_NUM_32
-#define Y_RSENSE                TMC2209_RSENSE_DEFAULT
+#define Y_STEP_PIN              GPIO_NUM_26
+#define Y_DIRECTION_PIN         GPIO_NUM_25
+#define Y_RSENSE                0.11f
 #define Y_DRIVER_ADDRESS        1
 #define DEFAULT_Y_MICROSTEPS    16
 
-#define X_LIMIT_PIN             GPIO_NUM_27
-#define Y_LIMIT_PIN             GPIO_NUM_36
+#define X_LIMIT_PIN             GPIO_NUM_36
+#define Y_LIMIT_PIN             GPIO_NUM_27
 // OK to comment out to use pin for other features
 #define STEPPERS_DISABLE_PIN    GPIO_NUM_4
 
@@ -106,20 +108,20 @@
 
 #define DEFAULT_LASER_MODE 0 // false
 
-#define DEFAULT_X_STEPS_PER_MM 200.0
-#define DEFAULT_Y_STEPS_PER_MM 71.111
-#define DEFAULT_Z_STEPS_PER_MM 100.0 // This is percent in servo mode
+#define DEFAULT_X_STEPS_PER_MM 88.89
+#define DEFAULT_Y_STEPS_PER_MM 11.11
+//#define DEFAULT_Z_STEPS_PER_MM 100.0 // This is percent in servo mode
 
 #define DEFAULT_X_MAX_RATE 5000.0 // mm/min
-#define DEFAULT_Y_MAX_RATE 15000.0 // mm/min
-#define DEFAULT_Z_MAX_RATE 3000.0 // mm/min
+#define DEFAULT_Y_MAX_RATE 5000.0 // mm/min 15000.0
+//#define DEFAULT_Z_MAX_RATE 3000.0 // mm/min
 
 #define DEFAULT_X_ACCELERATION 200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
 #define DEFAULT_Y_ACCELERATION 200.0 // mm/sec^2
-#define DEFAULT_Z_ACCELERATION 50.0 // mm/sec^2
+//#define DEFAULT_Z_ACCELERATION 50.0 // mm/sec^2
 
-#define DEFAULT_X_MAX_TRAVEL 50.0 // mm NOTE: Must be a positive value.
-#define DEFAULT_Y_MAX_TRAVEL 300.0 // mm NOTE: Must be a positive value.
-#define DEFAULT_Z_MAX_TRAVEL 5.0 // This is percent in servo mode
+#define DEFAULT_X_MAX_TRAVEL 250.0 // mm NOTE: Must be a positive value.
+#define DEFAULT_Y_MAX_TRAVEL 360.0 // mm NOTE: Must be a positive value.
+//#define DEFAULT_Z_MAX_TRAVEL 5.0 // This is percent in servo mode
 
-#define DEFAULT_Z_HOMING_MPOS DEFAULT_Z_MAX_TRAVEL // stays up after homing
+//#define DEFAULT_Z_HOMING_MPOS DEFAULT_Z_MAX_TRAVEL // stays up after homing
