@@ -38,7 +38,7 @@
 #define SEGMENT_LENGTH 0.5 // segment length in mm
 
 
-#define N_AXIS 2
+#define N_AXIS 3
 
 #define TRINAMIC_UART_RUN_MODE       TrinamicUartMode :: StealthChop
 #define TRINAMIC_UART_HOMING_MODE    TrinamicUartMode :: StallGuard
@@ -53,7 +53,16 @@
 #define X_DIRECTION_PIN         GPIO_NUM_32
 #define X_RSENSE                0.11f
 #define X_DRIVER_ADDRESS        0
+
 #define DEFAULT_X_MICROSTEPS    16
+#define DEFAULT_X_CURRENT       0.45
+#define DEFAULT_X_HOLD_CURRENT  0.3
+#define DEFAULT_X_STEPS_PER_MM  100.0//88.889
+#define DEFAULT_X_MAX_RATE      2500.0 // mm/min
+#define DEFAULT_X_ACCELERATION  200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
+#define DEFAULT_X_MAX_TRAVEL    250.0 // mm NOTE: Must be a positive value.
+#define DEFAULT_X_STALLGUARD    8
+#define DEFAULT_X_HOMING_MPOS   0.0
 
 // POLAR_AXIS
 #define Y_TRINAMIC_DRIVER       2209
@@ -62,6 +71,14 @@
 #define Y_RSENSE                0.11f
 #define Y_DRIVER_ADDRESS        1
 #define DEFAULT_Y_MICROSTEPS    16
+#define DEFAULT_Y_CURRENT       0.45
+#define DEFAULT_Y_HOLD_CURRENT  0.3
+#define DEFAULT_Y_STEPS_PER_MM  100.0//11.111
+#define DEFAULT_Y_MAX_RATE      2500.0 // mm/min
+#define DEFAULT_Y_ACCELERATION  200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
+#define DEFAULT_Y_MAX_TRAVEL    360.0 // mm NOTE: Must be a positive value.
+#define DEFAULT_Y_STALLGUARD    8
+#define DEFAULT_Y_HOMING_MPOS   0.0
 
 #define X_LIMIT_PIN             GPIO_NUM_36
 #define Y_LIMIT_PIN             GPIO_NUM_27
@@ -107,21 +124,3 @@
 #define DEFAULT_SPINDLE_RPM_MIN 0.0 // rpm
 
 #define DEFAULT_LASER_MODE 0 // false
-
-#define DEFAULT_X_STEPS_PER_MM 88.89
-#define DEFAULT_Y_STEPS_PER_MM 11.11
-//#define DEFAULT_Z_STEPS_PER_MM 100.0 // This is percent in servo mode
-
-#define DEFAULT_X_MAX_RATE 5000.0 // mm/min
-#define DEFAULT_Y_MAX_RATE 5000.0 // mm/min 15000.0
-//#define DEFAULT_Z_MAX_RATE 3000.0 // mm/min
-
-#define DEFAULT_X_ACCELERATION 200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
-#define DEFAULT_Y_ACCELERATION 200.0 // mm/sec^2
-//#define DEFAULT_Z_ACCELERATION 50.0 // mm/sec^2
-
-#define DEFAULT_X_MAX_TRAVEL 250.0 // mm NOTE: Must be a positive value.
-#define DEFAULT_Y_MAX_TRAVEL 360.0 // mm NOTE: Must be a positive value.
-//#define DEFAULT_Z_MAX_TRAVEL 5.0 // This is percent in servo mode
-
-//#define DEFAULT_Z_HOMING_MPOS DEFAULT_Z_MAX_TRAVEL // stays up after homing

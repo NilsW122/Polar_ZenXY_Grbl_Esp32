@@ -92,9 +92,11 @@ const int MAX_N_AXIS = 6;
 // serial monitor, sender, etc uses a different value than 115200
 #define BAUD_RATE 115200
 
+//Set your own Hostname
+#define CONFIG_HOSTNAME "Nils_ZenTable"
 //Connect to your local AP with these credentials
-//#define CONNECT_TO_SSID  "WCable"
-//#define SSID_PASSWORD  "76519842512869044261"
+#define CONNECT_TO_SSID  "WCable"
+#define SSID_PASSWORD  "76519842512869044261"
 //CONFIGURE_EYECATCH_BEGIN (DO NOT MODIFY THIS LINE)
 //#define ENABLE_BLUETOOTH  // enable bluetooth
 

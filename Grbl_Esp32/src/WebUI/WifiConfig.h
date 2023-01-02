@@ -40,7 +40,11 @@ namespace WebUI {
     static const int ESP_APPLY_NOW = 1;
 
     //defaults values
+#ifdef CONFIG_HOSTNAME
+    static const char* DEFAULT_HOSTNAME = CONFIG_HOSTNAME;
+#else   //!CONFIG_HOSTNAME
     static const char* DEFAULT_HOSTNAME = "grblesp";
+#endif  //CONFIG_HOSTNAME
 #ifdef CONNECT_TO_SSID
     static const char* DEFAULT_STA_SSID = CONNECT_TO_SSID;
     static const char* DEFAULT_STA_PWD  = SSID_PASSWORD;
