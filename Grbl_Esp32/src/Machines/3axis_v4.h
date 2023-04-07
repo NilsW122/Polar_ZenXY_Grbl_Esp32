@@ -25,37 +25,84 @@
     You should have received a copy of the GNU General Public License
     along with Grbl_ESP32.  If not, see <http://www.gnu.org/licenses/>.
 */
-
 #define MACHINE_NAME            "ESP32_V4"
 
-#define X_STEP_PIN              GPIO_NUM_12
-#define X_DIRECTION_PIN         GPIO_NUM_14
+#define N_AXIS 3
+
+#define TRINAMIC_UART_RUN_MODE       TrinamicUartMode :: StealthChop
+#define TRINAMIC_UART_HOMING_MODE    TrinamicUartMode :: StallGuard
+
+#define TMC_UART                UART_NUM_2
+#define TMC_UART_RX             GPIO_NUM_16
+#define TMC_UART_TX             GPIO_NUM_17   
+
+// RADIUS_AXIS
+#define X_TRINAMIC_DRIVER       2209
+#define X_STEP_PIN              GPIO_NUM_33
+#define X_DIRECTION_PIN         GPIO_NUM_32
+#define X_RSENSE                0.11f
+#define X_DRIVER_ADDRESS        0
+
+#define DEFAULT_X_MICROSTEPS    16
+#define DEFAULT_X_CURRENT       0.65
+#define DEFAULT_X_HOLD_CURRENT  0.3
+#define DEFAULT_X_STEPS_PER_MM  88.889
+#define DEFAULT_X_MAX_RATE      2500.0 // mm/min
+#define DEFAULT_X_ACCELERATION  200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
+#define DEFAULT_X_MAX_TRAVEL    250.0 // mm NOTE: Must be a positive value.
+#define DEFAULT_X_STALLGUARD    1
+#define DEFAULT_X_HOMING_MPOS   0.0
+
+// POLAR_AXIS
+#define Y_TRINAMIC_DRIVER       2209
 #define Y_STEP_PIN              GPIO_NUM_26
-#define Y_DIRECTION_PIN         GPIO_NUM_15
-#define Z_STEP_PIN              GPIO_NUM_27
-#define Z_DIRECTION_PIN         GPIO_NUM_33
+#define Y_DIRECTION_PIN         GPIO_NUM_25
+#define Y_RSENSE                0.11f
+#define Y_DRIVER_ADDRESS        1
 
-#define X_LIMIT_PIN             GPIO_NUM_17
-#define Y_LIMIT_PIN             GPIO_NUM_4
-#define Z_LIMIT_PIN             GPIO_NUM_16
+#define DEFAULT_Y_MICROSTEPS    16
+#define DEFAULT_Y_CURRENT       0.50
+#define DEFAULT_Y_HOLD_CURRENT  0.3
+#define DEFAULT_Y_STEPS_PER_MM  197.530
+#define DEFAULT_Y_MAX_RATE      4000.0 // mm/min
+#define DEFAULT_Y_ACCELERATION  400.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
+#define DEFAULT_Y_MAX_TRAVEL    360.0 // mm NOTE: Must be a positive value.
+#define DEFAULT_Y_STALLGUARD    8
+#define DEFAULT_Y_HOMING_MPOS   0.0
 
-
+#define X_LIMIT_PIN             GPIO_NUM_36
+#define Y_LIMIT_PIN             GPIO_NUM_27
 // OK to comment out to use pin for other features
-#define STEPPERS_DISABLE_PIN    GPIO_NUM_13
+#define STEPPERS_DISABLE_PIN    GPIO_NUM_4
 
-#define SPINDLE_TYPE            SpindleType::PWM
-#define SPINDLE_OUTPUT_PIN      GPIO_NUM_2   // labeled SpinPWM
-#define SPINDLE_ENABLE_PIN      GPIO_NUM_22  // labeled SpinEnbl
+//GRBL Configuration//
 
-#define COOLANT_MIST_PIN        GPIO_NUM_21  // labeled Mist
-#define COOLANT_FLOOD_PIN       GPIO_NUM_25  // labeled Flood
-#define PROBE_PIN               GPIO_NUM_32  // labeled Probe
+#define DEFAULT_STEP_PULSE_MICROSECONDS 3
+#define DEFAULT_STEPPER_IDLE_LOCK_TIME 255 // stay on
 
+#define DEFAULT_STEPPING_INVERT_MASK 0 // uint8_t
+#define DEFAULT_DIRECTION_INVERT_MASK 1 // uint8_t
+#define DEFAULT_INVERT_ST_ENABLE 0 // boolean
+#define DEFAULT_INVERT_LIMIT_PINS 0 // boolean
+#define DEFAULT_INVERT_PROBE_PIN 0 // boolean
 
-/*
-#define CONTROL_SAFETY_DOOR_PIN GPIO_NUM_35  // labeled Door,  needs external pullup
-#define CONTROL_RESET_PIN       GPIO_NUM_34  // labeled Reset, needs external pullup
-#define CONTROL_FEED_HOLD_PIN   GPIO_NUM_36  // labeled Hold,  needs external pullup
-#define CONTROL_CYCLE_START_PIN GPIO_NUM_39  // labeled Start, needs external pullup
-*/
+#define DEFAULT_STATUS_REPORT_MASK 1 // MPos enabled
 
+#define DEFAULT_JUNCTION_DEVIATION 0.01 // mm
+#define DEFAULT_ARC_TOLERANCE 0.002 // mm
+#define DEFAULT_REPORT_INCHES 0 // false
+
+#define DEFAULT_SOFT_LIMIT_ENABLE 0 // false
+#define DEFAULT_HARD_LIMIT_ENABLE 0  // false
+
+#define DEFAULT_HOMING_CYCLE_0      bit(X_AXIS)
+#define DEFAULT_HOMING_CYCLE_1      bit(Y_AXIS)
+
+#define DEFAULT_HOMING_ENABLE           1
+#define DEFAULT_HOMING_DIR_MASK         1
+#define DEFAULT_HOMING_FEED_RATE        2500.0 // mm/min
+#define DEFAULT_HOMING_SEEK_RATE        3000.0 // mm/min
+#define DEFAULT_HOMING_DEBOUNCE_DELAY   250 // msec (0-65k)
+#define DEFAULT_HOMING_PULLOFF          2.5 // mm
+
+#define SPINDLE_TYPE SpindleType::NONE

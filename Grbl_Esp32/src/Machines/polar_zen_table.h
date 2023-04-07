@@ -30,8 +30,6 @@
 // via ../custom_code.cpp
 #define CUSTOM_CODE_FILENAME "Custom/polar_zen_table.cpp"
 
-#define SPINDLE_TYPE SpindleType::NONE
-
 #define RADIUS_AXIS 0
 #define POLAR_AXIS 1
 
@@ -55,13 +53,13 @@
 #define X_DRIVER_ADDRESS        0
 
 #define DEFAULT_X_MICROSTEPS    16
-#define DEFAULT_X_CURRENT       0.45
+#define DEFAULT_X_CURRENT       0.65
 #define DEFAULT_X_HOLD_CURRENT  0.3
-#define DEFAULT_X_STEPS_PER_MM  100.0//88.889
+#define DEFAULT_X_STEPS_PER_MM  88.889
 #define DEFAULT_X_MAX_RATE      2500.0 // mm/min
 #define DEFAULT_X_ACCELERATION  200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
 #define DEFAULT_X_MAX_TRAVEL    250.0 // mm NOTE: Must be a positive value.
-#define DEFAULT_X_STALLGUARD    8
+#define DEFAULT_X_STALLGUARD    200
 #define DEFAULT_X_HOMING_MPOS   0.0
 
 // POLAR_AXIS
@@ -70,12 +68,13 @@
 #define Y_DIRECTION_PIN         GPIO_NUM_25
 #define Y_RSENSE                0.11f
 #define Y_DRIVER_ADDRESS        1
+
 #define DEFAULT_Y_MICROSTEPS    16
-#define DEFAULT_Y_CURRENT       0.45
+#define DEFAULT_Y_CURRENT       0.50
 #define DEFAULT_Y_HOLD_CURRENT  0.3
-#define DEFAULT_Y_STEPS_PER_MM  100.0//11.111
-#define DEFAULT_Y_MAX_RATE      2500.0 // mm/min
-#define DEFAULT_Y_ACCELERATION  200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
+#define DEFAULT_Y_STEPS_PER_MM  197.530
+#define DEFAULT_Y_MAX_RATE      4000.0 // mm/min
+#define DEFAULT_Y_ACCELERATION  400.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
 #define DEFAULT_Y_MAX_TRAVEL    360.0 // mm NOTE: Must be a positive value.
 #define DEFAULT_Y_STALLGUARD    8
 #define DEFAULT_Y_HOMING_MPOS   0.0
@@ -85,26 +84,18 @@
 // OK to comment out to use pin for other features
 #define STEPPERS_DISABLE_PIN    GPIO_NUM_4
 
+//GRBL Configuration//
 
-#define SPINDLE_TYPE SpindleType::NONE
-
-
-// this 'bot only homes the X axis
-// Set $Homing/Cycle0=X
-
-// ============= End CPU MAP ==================
-
-// ============= Begin Default Settings ================
 #define DEFAULT_STEP_PULSE_MICROSECONDS 3
 #define DEFAULT_STEPPER_IDLE_LOCK_TIME 255 // stay on
 
 #define DEFAULT_STEPPING_INVERT_MASK 0 // uint8_t
-#define DEFAULT_DIRECTION_INVERT_MASK 2 // uint8_t
+#define DEFAULT_DIRECTION_INVERT_MASK 1 // uint8_t
 #define DEFAULT_INVERT_ST_ENABLE 0 // boolean
 #define DEFAULT_INVERT_LIMIT_PINS 1 // boolean
 #define DEFAULT_INVERT_PROBE_PIN 0 // boolean
 
-#define DEFAULT_STATUS_REPORT_MASK 2 // MPos enabled
+#define DEFAULT_STATUS_REPORT_MASK 1 // MPos enabled
 
 #define DEFAULT_JUNCTION_DEVIATION 0.01 // mm
 #define DEFAULT_ARC_TOLERANCE 0.002 // mm
@@ -113,14 +104,15 @@
 #define DEFAULT_SOFT_LIMIT_ENABLE 0 // false
 #define DEFAULT_HARD_LIMIT_ENABLE 0  // false
 
-#define DEFAULT_HOMING_ENABLE 1
-#define DEFAULT_HOMING_DIR_MASK 0 // move positive dir Z, negative X,Y
-#define DEFAULT_HOMING_FEED_RATE 200.0 // mm/min
-#define DEFAULT_HOMING_SEEK_RATE 1000.0 // mm/min
-#define DEFAULT_HOMING_DEBOUNCE_DELAY 250 // msec (0-65k)
-#define DEFAULT_HOMING_PULLOFF 3.0 // mm
+#define DEFAULT_HOMING_CYCLE_0      bit(X_AXIS)
+#define DEFAULT_HOMING_CYCLE_1      bit(Y_AXIS)
 
-#define DEFAULT_SPINDLE_RPM_MAX 1000.0 // rpm
-#define DEFAULT_SPINDLE_RPM_MIN 0.0 // rpm
+#define DEFAULT_HOMING_ENABLE           1
+#define DEFAULT_INVERT_LIMIT_PINS       0
+#define DEFAULT_HOMING_DIR_MASK         1
+#define DEFAULT_HOMING_FEED_RATE        2500.0 // mm/min
+#define DEFAULT_HOMING_SEEK_RATE        3000.0 // mm/min
+#define DEFAULT_HOMING_DEBOUNCE_DELAY   250 // msec (0-65k)
+#define DEFAULT_HOMING_PULLOFF          2.5 // mm
 
-#define DEFAULT_LASER_MODE 0 // false
+#define SPINDLE_TYPE SpindleType::NONE
