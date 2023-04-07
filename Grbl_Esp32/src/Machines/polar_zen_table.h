@@ -59,7 +59,7 @@
 #define DEFAULT_X_MAX_RATE      2500.0 // mm/min
 #define DEFAULT_X_ACCELERATION  200.0 // mm/sec^2. 200 mm/sec^2 = 720000 mm/min^2
 #define DEFAULT_X_MAX_TRAVEL    250.0 // mm NOTE: Must be a positive value.
-#define DEFAULT_X_STALLGUARD    200
+#define DEFAULT_X_STALLGUARD    16
 #define DEFAULT_X_HOMING_MPOS   0.0
 
 // POLAR_AXIS
@@ -79,7 +79,7 @@
 #define DEFAULT_Y_STALLGUARD    8
 #define DEFAULT_Y_HOMING_MPOS   0.0
 
-#define X_LIMIT_PIN             GPIO_NUM_36
+#define X_LIMIT_PIN             GPIO_NUM_13
 #define Y_LIMIT_PIN             GPIO_NUM_27
 // OK to comment out to use pin for other features
 #define STEPPERS_DISABLE_PIN    GPIO_NUM_4
@@ -92,7 +92,7 @@
 #define DEFAULT_STEPPING_INVERT_MASK 0 // uint8_t
 #define DEFAULT_DIRECTION_INVERT_MASK 1 // uint8_t
 #define DEFAULT_INVERT_ST_ENABLE 0 // boolean
-#define DEFAULT_INVERT_LIMIT_PINS 1 // boolean
+#define DEFAULT_INVERT_LIMIT_PINS 0 // boolean
 #define DEFAULT_INVERT_PROBE_PIN 0 // boolean
 
 #define DEFAULT_STATUS_REPORT_MASK 1 // MPos enabled
@@ -108,9 +108,8 @@
 #define DEFAULT_HOMING_CYCLE_1      bit(Y_AXIS)
 
 #define DEFAULT_HOMING_ENABLE           1
-#define DEFAULT_INVERT_LIMIT_PINS       0
 #define DEFAULT_HOMING_DIR_MASK         1
-#define DEFAULT_HOMING_FEED_RATE        2500.0 // mm/min
+#define DEFAULT_HOMING_FEED_RATE        2000.0 // mm/min
 #define DEFAULT_HOMING_SEEK_RATE        3000.0 // mm/min
 #define DEFAULT_HOMING_DEBOUNCE_DELAY   250 // msec (0-65k)
 #define DEFAULT_HOMING_PULLOFF          2.5 // mm
