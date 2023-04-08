@@ -70,10 +70,17 @@
 #define DEFAULT_Y_STALLGUARD    8
 #define DEFAULT_Y_HOMING_MPOS   0.0
 
-#define X_LIMIT_PIN             GPIO_NUM_13
+#define X_LIMIT_PIN             GPIO_NUM_36
 #define Y_LIMIT_PIN             GPIO_NUM_27
-// OK to comment out to use pin for other features
+
 #define STEPPERS_DISABLE_PIN    GPIO_NUM_4
+
+//SD Card
+#define GRBL_SPI_SS GPIO_NUM_5
+#define GRBL_SPI_MOSI GPIO_NUM_23
+#define GRBL_SPI_MISO GPIO_NUM_19
+#define GRBL_SPI_SCK GPIO_NUM_18
+#define GRBL_SPI_FREQ 4000000
 
 //GRBL Configuration//
 
@@ -100,8 +107,8 @@
 
 #define DEFAULT_HOMING_ENABLE           1
 #define DEFAULT_HOMING_DIR_MASK         1
-#define DEFAULT_HOMING_FEED_RATE        2000.0 // mm/min
-#define DEFAULT_HOMING_SEEK_RATE        3000.0 // mm/min
+#define DEFAULT_HOMING_FEED_RATE        2500.0 // mm/min
+#define DEFAULT_HOMING_SEEK_RATE        2500.0 // mm/min
 #define DEFAULT_HOMING_DEBOUNCE_DELAY   250 // msec (0-65k)
 #define DEFAULT_HOMING_PULLOFF          2.5 // mm
 
